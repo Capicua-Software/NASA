@@ -2,6 +2,11 @@
 using NASA.Validators.Rules;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using NASA.Models;
+using NASA.Auth;
+using System.Threading.Tasks;
+using NASA.Views;
+using System;
 
 namespace NASA.ViewModels
 {
@@ -11,6 +16,7 @@ namespace NASA.ViewModels
     [Preserve(AllMembers = true)]
     public class LoginPageViewModel : LoginViewModel
     {
+        FAuth auth = new FAuth();
         
         #region Fields
 
@@ -117,16 +123,41 @@ namespace NASA.ViewModels
         /// Invoked when the Log In button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void LoginClicked(object obj)
+        private async void LoginClicked(object obj)
         {
-            if (this.AreFieldsValid())
-            {
-                // Do Something
-                string email = Email.ToString();
-                string pass = Password.ToString();
+            LoginModel model = new LoginModel();
 
-                
+            try
+            {
+                if (this.AreFieldsValid())
+                {
+                    // Do Something
+                    // obj = new Auth.FAuth();
+
+                    model.Email = Email.ToString();
+                    model.Password = Password.ToString();
+
+                    var _model = await auth.LoginAsync(model);
+                    if (_model.token != "")
+                    {
+                        var newPage = new VisionAuthPage();
+                        newPage.BindingContext = obj;
+                        await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(newPage);
+
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Lo sentimos😭", "No se pudo autenticar", "Ok");
+                    }
+
+                }
             }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                await App.Current.MainPage.DisplayAlert("NASA", "No se pudo autenticar", "Ok");
+            }
+
         }
 
         /// <summary>

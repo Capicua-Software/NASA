@@ -11,6 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\profile.json" />
+    <None Remove="Images\CaloriesEaten.svg" />
+    <None Remove="Images\HeartRate.svg" />
+    <None Remove="Images\SleepDuration.svg" />
+    <None Remove="Images\WaterConsumed.svg" />
     <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
     <None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
     <None Remove="Resources\Fonts\Montserrat-Regular.ttf" />
@@ -19,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\profile.json" />
+    <EmbeddedResource Include="Images\CaloriesEaten.svg" />
+    <EmbeddedResource Include="Images\HeartRate.svg" />
+    <EmbeddedResource Include="Images\SleepDuration.svg" />
+    <EmbeddedResource Include="Images\WaterConsumed.svg" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Bold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Montserrat-Regular.ttf" />
@@ -29,11 +39,15 @@
   <ItemGroup>
     <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="19.2.0.56" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator" Version="19.2.0.56" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -102,6 +116,9 @@
     <EmbeddedResource Update="Views\EmailEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoggedInPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginEmailEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -115,6 +132,12 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Templates\SocialIconTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VisionAuthPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WalkthroughItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
