@@ -11,6 +11,7 @@ namespace NASA.ViewModels
     [Preserve(AllMembers = true)]
     public class LoginPageViewModel : LoginViewModel
     {
+        
         #region Fields
 
         private ValidatableObject<string> password;
@@ -121,6 +122,10 @@ namespace NASA.ViewModels
             if (this.AreFieldsValid())
             {
                 // Do Something
+                string email = Email.ToString();
+                string pass = Password.ToString();
+
+                
             }
         }
 

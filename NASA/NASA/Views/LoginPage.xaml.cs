@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Internals;
+﻿using System;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace NASA.Views
@@ -16,6 +17,12 @@ namespace NASA.Views
         public LoginPage()
         {
             this.InitializeComponent();
+        }
+
+        async void LoginClicked(object sender, EventArgs e)
+        {
+            string pass = PasswordEntry.Text;
+
         }
     }
 }
