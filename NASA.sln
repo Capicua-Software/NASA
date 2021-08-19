@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASA.Android", "NASA\NASA.Android\NASA.Android.csproj", "{44BC69FA-E6FF-4184-844E-7D7C2B91596A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASA", "NASA\NASA\NASA.csproj", "{2D100F80-ECAF-4DCE-BCC6-69B45E7CC9E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BC69FA-E6FF-4184-844E-7D7C2B91596A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2D100F80-ECAF-4DCE-BCC6-69B45E7CC9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D100F80-ECAF-4DCE-BCC6-69B45E7CC9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D100F80-ECAF-4DCE-BCC6-69B45E7CC9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D100F80-ECAF-4DCE-BCC6-69B45E7CC9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFD9F60A-B397-453A-A59D-A74810DF57FB}
+	EndGlobalSection
+EndGlobal
