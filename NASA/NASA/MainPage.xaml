@@ -1,18 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:NASA"
              x:Class="NASA.MainPage">
-    
-    
 
-    <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="20" VerticalOptions="End">
-        <Button Text="Sign Up" HeightRequest='50' WidthRequest="145" BackgroundColor="#E7305E" TextColor="White"
-                    CornerRadius="25" FontAttributes="Bold"></Button>
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
 
-    </StackLayout>
+    <Grid>
+        <MediaElement x:Name="BgVideo" Source="ms-appx:///nasa_video_stars.mp4" ShowsPlaybackControls="False"
+                      IsLooping="True" Aspect="AspectFill" AutoPlay="True"
+                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
 
- 
+        <BoxView>
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="8,4" EndPoint="1,1">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="#2E4159" Offset="0.9"/>
+                    <GradientStop Color="#2E4159" Offset="1"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <StackLayout Margin="0, 125, -30,30" HorizontalOptions="Center">
+            <Image Source="nasa_logo_xamarin.png" HeightRequest="200"/>
+            
+            <Label Text="Bienvenido a la NASA!" TextColor="White" FontSize="30" FontFamily="MarkerFelt-Thin"
+                             HorizontalOptions="Center" Margin="0,20,30,0"/>
+        </StackLayout>
+
+
+        <Grid RowDefinitions="Auto, Auto, Auto" HeightRequest="280" Margin="30,30,30,100"
+              RowSpacing="40" VerticalOptions="End">
+
+            
+  
+                <CarouselView x:Name="cvOnboarding" ItemsSource="{Binding Onboardings}" IndicatorView="indicatorView" VerticalOptions="End" >
+                   
+
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="10">
+                                <Label Text="{Binding Heading}" TextColor="White" FontSize="20" FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+                        
+                                <Label Text="{Binding Caption}" TextColor="White" FontSize="14"  
+                                       HorizontalOptions="Center"/>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+
+            </CarouselView>
+
+            <IndicatorView x:Name="indicatorView"
+                           IndicatorColor="#7B7B7B"
+                           SelectedIndicatorColor="#FFF"
+                           HorizontalOptions="Center"
+                           Margin="0,30,0,0"/>
+
+            
+            
+
+                <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,20,0,0">
+                <Button Text="Registrarse" Clicked="RegisterCommand" HeightRequest="50" WidthRequest="145"
+                        Background="#E7305E" TextColor="White" CornerRadius="25" FontAttributes="Bold"/>
+                <Button Text="Iniciar Sesión" Clicked="SignInCommand" HeightRequest="50" WidthRequest="145"
+                        Background="White" TextColor="#2E4159" CornerRadius="25" FontAttributes="Bold"/>
+
+                </StackLayout>
+
+          
+
+
+
+        </Grid>
+        
+        
+    </Grid>
 
 
 </ContentPage>

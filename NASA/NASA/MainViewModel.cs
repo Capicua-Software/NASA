@@ -7,19 +7,31 @@ using Xamarin.Forms;
 
 namespace NASA
 {
-    public class MainViewModel : ContentPage
+    public class MainViewModel
     {
         public MainViewModel()
         {
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Welcome to Xamarin.Forms!" }
-                }
-            };
-
+            Onboardings = GetOnboarding();
             
         }
 
+        public List<Onboarding> Onboardings { get; set; }
+
+        private List<Onboarding> GetOnboarding()
+        {
+            return new List<Onboarding>
+            {
+                new Onboarding {Heading = "Secretos del universo", Caption = "Descubre los secretos del universo en la app."},
+                new Onboarding {Heading = "Inicia sesión", Caption = "Puedes iniciar sesión si ya tienes cuenta."},
+                new Onboarding {Heading = "Registrate", Caption = "Puedes registrarte si aún no tienes cuenta."}
+            };
+        }
+    }
+
+
+    public class Onboarding
+    {
+        public string Heading { get; set; }
+        public string Caption { get; set; }
     }
 }
