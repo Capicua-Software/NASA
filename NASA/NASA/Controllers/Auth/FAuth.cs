@@ -24,12 +24,22 @@ namespace NASA.Auth
             return model;
         }
 
-        public async Task<string> GetImgUrl(string route)
+        public async Task<string> GetImgUrl(Stream fileStream,string fileName)
         {
             OpenFirestoreConnection();
+
+            FirebaseStorage firebaseStorage = new FirebaseStorage("nasa-75384.appspot.com");
+
+            var imageUrl = await firebaseStorage
+                .Child("TempFaces")
+                .Child(fileName)
+                .PutAsync(fileStream);
+
+            return imageUrl;
+
+/*
             var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, route);
 
-            //Open image 
             var stream = File.Open(path, FileMode.Open);
             LoginViewModel CurrentUser = new LoginViewModel();
             string Email = "jannabelramos@gmail.com";
@@ -50,8 +60,8 @@ namespace NASA.Auth
 
 
             var imgUrl = await task;
+*/
 
-            return imgUrl;
                      
         }
     }
