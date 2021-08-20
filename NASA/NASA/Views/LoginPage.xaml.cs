@@ -19,9 +19,9 @@ namespace NASA.Views
             this.InitializeComponent();
         }
 
-        async void LoginClicked(object sender, EventArgs e)
+        void LoginClicked(object sender, EventArgs e)
         {
-            string pass = PasswordEntry.Text;
+            //string pass = PasswordEntry.Text;
 
         }
     }

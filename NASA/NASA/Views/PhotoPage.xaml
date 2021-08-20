@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NASA.Views.PhotoPage">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Padding="40">
+            <Frame CornerRadius="100" 
+           HeightRequest="200"
+           WidthRequest="200"
+           HorizontalOptions="Center"
+           Padding="-10"
+           IsClippedToBounds="True">
+                <ImageButton x:Name="PhotoImage" Clicked="CameraButton_Clicked" 
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="Center" Aspect="AspectFill" HeightRequest="500" WidthRequest="500" Source="upload_pic.png"/>
+            </Frame>
+        </StackLayout>
+
+
+        <Button x:Name="VerifyFace" Clicked="VerifyFaceBtn_Clicked" Text="Verificar Cara" Grid.Row="1" />
+
+
+        <Button x:Name="NextStep" Clicked="NextStepBtn_Clicked" Text="Siguiente Paso" Grid.Row="2" />
+
+    </Grid>
+    
+</ContentPage>

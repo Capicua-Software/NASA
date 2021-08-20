@@ -140,7 +140,7 @@ namespace NASA.ViewModels
                     var _model = await auth.LoginAsync(model);
                     if (_model.token != "")
                     {
-                        var newPage = new VisionAuthPage();
+                        var newPage = new PhotoPage();
                         newPage.BindingContext = obj;
                         await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(newPage);
 
@@ -155,7 +155,7 @@ namespace NASA.ViewModels
             catch(Exception e)
             {
                 System.Diagnostics.Debug.WriteLine(e.Message);
-                await App.Current.MainPage.DisplayAlert("NASA", "No se pudo autenticar", "Ok");
+                await App.Current.MainPage.DisplayAlert("Lo sentimos😭", "No se pudo autenticar", "Ok");
             }
 
         }

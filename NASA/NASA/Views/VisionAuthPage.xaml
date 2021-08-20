@@ -44,7 +44,9 @@
                 TextColor="{x:StaticResource Gray-White}"
                 WidthRequest="80" />
 
-            <!--  Rotator used to navigate the view  -->
+
+
+            <!--  Rotator used to navigate the view 
             <rotator:SfRotator
                 x:Name="Rotator"
                 Grid.Row="1"
@@ -70,14 +72,38 @@
                     <behavior:SfRotatorBehavior />
                 </rotator:SfRotator.Behaviors>
             </rotator:SfRotator>
-
+ -->
             <!--  Next button  -->
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image x:Name="PhotoImage" />
+                <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="1" />
+            </Grid>
+            
+            <!--
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Pic}"></Image>
+                <Button Text="Tomar foto" Command="{Binding CaptureCommand}"  Grid.Row="1"></Button>
+            </Grid>
+            -->
+            
             <button:SfButton
                 x:Name="NextButtonText"
                 Grid.Row="2"
                 Margin="0,10,0,24"
                 Command="{Binding NextCommand}"
-                CommandParameter="{x:Reference Rotator}"
+               
                 CornerRadius="20"
                 HeightRequest="40"
                 HorizontalOptions="Center"
@@ -88,3 +114,6 @@
         </Grid>
     </ContentPage.Content>
 </ContentPage>
+
+
+<!--CommandParameter="{x:Reference Rotator}"-->

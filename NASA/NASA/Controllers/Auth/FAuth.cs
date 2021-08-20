@@ -6,6 +6,9 @@ using NASA_L;
 using System.Threading.Tasks;
 using Firebase.Auth;
 using NASA.Models;
+using System.IO;
+using NASA.ViewModels;
+using Firebase.Storage;
 
 namespace NASA.Auth
 {
@@ -19,6 +22,37 @@ namespace NASA.Auth
             model.token = model.ab.FirebaseToken;
             model.user = model.ab.User;
             return model;
+        }
+
+        public async Task<string> GetImgUrl(string route)
+        {
+            OpenFirestoreConnection();
+            var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, route);
+
+            //Open image 
+            var stream = File.Open(path, FileMode.Open);
+            LoginViewModel CurrentUser = new LoginViewModel();
+            string Email = "jannabelramos@gmail.com";
+
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(ApiKey));
+            var signIn = await auth.SignInWithEmailAndPasswordAsync("jannabelramos@gmail.com", "jannabel");
+
+            var task = new FirebaseStorage(
+                Bucket,
+                new FirebaseStorageOptions
+                {
+                    AuthTokenAsyncFactory = () => Task.FromResult(signIn.FirebaseToken),
+                    ThrowOnCancel = true,
+                })
+                .Child(Email)
+                .Child("Profile")
+                .PutAsync(stream);
+
+
+            var imgUrl = await task;
+
+            return imgUrl;
+                     
         }
     }
 }
